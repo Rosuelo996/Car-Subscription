@@ -94,7 +94,7 @@ nav {
 .nav__link--anchor::after {
   content: "";
   position: absolute;
-  left: 0;
+  right: 0;
   bottom: -6px;
   width: 0;
   height: 3px;
@@ -353,12 +353,58 @@ RESULTS
   height: 55%;
   border-radius: 12px 12px 0 0;
   overflow: hidden;
+  z-index: 1;
 }
 
 .card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 300ms ease;
+}
+
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.75);;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 300ms ease, opacity 300ms ease;
+  z-index: 2;
+}
+
+.card__overlay span {
+  color: #6030b1;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: not-allowed;
+}
+
+.card__img--wrapper:hover .card__overlay {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card__img--wrapper:hover .card__img {
+  opacity: 0.6;
+}
+
+.card__overlay::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #6030b1;
+  transition: width 300ms ease;
+}
+
+.card__img--wrapper:hover .card__overlay::after {
+  width: 100%;
 }
 
 .card__description {
@@ -398,3 +444,4 @@ RESULTS
   font-weight: 700;
   letter-spacing: 0.02em;
 }
+
