@@ -23,12 +23,10 @@ const allowedMakes = [
 
 const MAX_RESULTS = 9;
 
-
 // STATE
 
 let carsData = [];
 let allCarsData = [];
-
 
 // API
 
@@ -38,7 +36,6 @@ async function getModelsForMake(make) {
   const data = await response.json();
   return data.Results;
 }
-
 
 // RANDOM DATA
 
@@ -59,21 +56,19 @@ function randomBodyType() {
   return types[Math.floor(Math.random() * types.length)];
 }
 
-
 // IMAGES
 
 function getCarImage(make, modelName) {
-
-  const formattedModel =
-    modelName.replace(/\s+/g, "-");
+  const formattedModel = modelName.replace(/\s+/g, "-");
 
   return `./assets/cars/${make}/${formattedModel}.jpg`;
 }
 
-
 // MAIN
 
 async function loadAllCars() {
+  searchProgress.classList.remove("hidden");
+  searchLoading.classList.remove("hidden");
   allCarsData = [];
 
   for (let i = 0; i < allowedMakes.length; i++) {
@@ -95,10 +90,13 @@ async function loadAllCars() {
     allCarsData = allCarsData.concat(carsForMake);
   }
 
-  carsData = allCarsData; 
+  carsData = allCarsData;
+  isDataReady = true;
   filterSortAndRender();
-}
 
+  searchProgress.classList.add("hidden");
+  searchLoading.classList.add("hidden");
+}
 
 // FILTER + SORT + OUTPUT
 
@@ -108,27 +106,19 @@ function filterSortAndRender() {
 
   // filter
   const filteredCars = carsData
-  
-  .filter((car) => {
-    return car.price >= minPrice && car.price <= maxPrice;
-  })
 
-  // sort
-  .sort((a, b) => b.price - a.price);
+    .filter((car) => {
+      return car.price >= minPrice && car.price <= maxPrice;
+    })
+
+    // sort
+    .sort((a, b) => b.price - a.price);
 
   // render + empty state
-  if (filteredCars.length > 0) {
-    emptyStateEl.classList.add("hidden");
-    cardListEl.innerHTML = filteredCars
-      .map((car) =>
-        modelHTML(car))
-      .join("");
-  } else {
-    cardListEl.innerHTML = "";
-    emptyStateEl.classList.remove("hidden");
-  }
-}
+  cardListEl.innerHTML = filteredCars.map((car) => modelHTML(car)).join("");
 
+  updateUI();
+}
 
 // CAR CARD
 
@@ -168,7 +158,6 @@ function modelHTML(car) {
   `;
 }
 
-
 // SEARCH BUTTON
 
 function searchCars() {
@@ -188,7 +177,7 @@ function searchCars() {
   emptyStateEl.classList.add("hidden");
   cardListEl.innerHTML = "";
 
-  // loading input
+  // search input
   setTimeout(() => {
     if (input === "") {
       carsData = allCarsData;
@@ -201,19 +190,20 @@ function searchCars() {
         const make = car.make.toLowerCase();
         const model = car.model.toLowerCase();
 
-        if (modelWord) {
+        const isKnownMake = allowedMakes.includes(makeWord);
+
+        // user typed make + model 
+        if (modelWord && isKnownMake) {
           return make.includes(makeWord) && model.includes(modelWord);
+        }
+
+        // user typed model words only 
+        else if (modelWord) {
+          return model.includes(modelWord);
         }
 
         return make.includes(input) || model.includes(input);
       });
-    }
-
-    // empty state
-    if (carsData.length === 0) {
-      emptyStateEl.classList.remove("hidden");
-    } else {
-      emptyStateEl.classList.add("hidden");
     }
 
     filterSortAndRender();
@@ -223,7 +213,6 @@ function searchCars() {
     searchLoading.classList.add("hidden");
   }, 1000);
 }
-
 
 // RESET
 
@@ -237,7 +226,7 @@ function resetSearch() {
   maxRange.value = 100000;
   updatePrice();
 
-  loadCars("mercedes");
+  loadAllCars();
 }
 
 // SLIDER TEXT + FILTER TRIGGER
@@ -254,6 +243,20 @@ function updatePrice() {
   priceText.textContent = `£${min.toLocaleString()} to £${max.toLocaleString()}`;
 
   filterSortAndRender();
+}
+
+// EMPTY STATE
+
+let isDataReady = false;
+
+function updateUI() {
+  if (!isDataReady) return;
+
+  if (carsData.length === 0) {
+    emptyStateEl.classList.remove("hidden");
+  } else {
+    emptyStateEl.classList.add("hidden");
+  }
 }
 
 // INITIAL LOAD
