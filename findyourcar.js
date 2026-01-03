@@ -28,7 +28,6 @@ const MAX_RESULTS = 9;
 let carsData = [];
 let allCarsData = [];
 
-
 // API
 
 async function getModelsForMake(make) {
@@ -94,7 +93,6 @@ async function loadAllCars() {
   carsData = allCarsData; 
   filterSortAndRender();
 }
-
 
 // FILTER + SORT + OUTPUT
 
