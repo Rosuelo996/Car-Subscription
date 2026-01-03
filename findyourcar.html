@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Your Car</title>
+    <link rel="stylesheet" href="./findyourcar.css" />
+    <script
+      src="https://kit.fontawesome.com/eb6cde8b72.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./findyourcar.js" defer></script>
+  </head>
+  <body>
+    <section id="landing">
+      <header>
+        <nav>
+          <div class="nav__row">
+            <img src="./assets/whitelogo.png" alt="" class="nav__logo" />
+            <button class="btn__menu click" onclick="openMenu()">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav__links">
+              <li class="nav__link">
+                <a class="nav__link--anchor" href="#">Home</a>
+              </li>
+              <li class="nav__link">
+                <a class="nav__link--anchor" href="#">Find Your Car</a>
+              </li>
+              <li class="nav__link">
+                <a class="nav__link--anchor nav__link--primary btn" href="#"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="menu__backdrop">
+          <button
+            class="btn__menu btn__menu--close click"
+            onclick="closeMenu()"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <ul class="menu__links">
+            <li class="menu__list">
+              <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
+            </li>
+            <li class="menu__list">
+              <a href="#" class="menu__link" onclick="closeMenu()">Search</a>
+            </li>
+            <li class="menu__list">
+              <a href="#" class="menu__link" onclick="closeMenu()">Sign up</a>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="header__description">
+            <h1 class="header__title">Browse our cars</h1>
+            <div class="header__input--wrapper">
+              <input
+                type="text"
+                placeholder="Search by Make, Model or Keyword"
+                class="header__input"
+              />
+              <button class="header__button" onclick="searchCars()">
+                <i class="fa-solid fa-magnifying-glass header__icon click"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="overlay"></div>
+      </header>
+      <section id="search">
+        <div id="searchProgress" class="search__progress hidden">
+          <div class="search__progress--bar"></div>
+        </div>
+        <div class="search__container">
+          <div class="search__bar">
+            <h2 class="search__title">Search results:</h2>
+            <div class="search__filter">
+              <div class="search__price--header">
+                <h3 class="search__price--label">
+                  Price range:
+                  <span id="priceText" class="search__price--value purple">
+                    $0 to $100.000</span
+                  >
+                </h3>
+              </div>
+              <div class="search__range">
+                <input
+                  type="range"
+                  class="search__slider"
+                  id="minRange"
+                  min="0"
+                  max="100000"
+                  value="0"
+                  oninput="updatePrice()"
+                />
+                <input
+                  type="range"
+                  class="search__slider"
+                  id="maxRange"
+                  min="0"
+                  max="100000"
+                  value="100000"
+                  oninput="updatePrice()"
+                />
+              </div>
+              <div class="search__slider--labels">
+                <span>$0</span>
+                <span>$100,000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="results">
+        <div class="results__container">
+          <div id="searchLoading" class="search__loading hidden">
+            <i class="fa-solid fa-spinner search__spinner"></i>
+            <span>Searching cars...</span>
+          </div>
+          <div class="card__list"></div>
+          <div class="search__empty hidden">
+            <img src="./assets/waiting.svg" alt="No results" />
+            <h3 class="search__empty--title">
+              Could not find any matches related to your search.
+            </h3>
+            <p class="search__empty--para">
+              Please change the filter or reset it below.
+            </p>
+            <button class="search__empty--button btn" onclick="resetSearch()">
+              Reset filter
+            </button>
+          </div>
+        </div>
+      </section>
+    </section>
+  </body>
+</html>

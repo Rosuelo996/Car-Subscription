@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Subscription Project</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/eb6cde8b72.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <figure>
+        <img
+          class="nav__logo--img"
+          src="./assets/blinker-icon.4f9b2663.png"
+          alt=""
+        />
+      </figure>
+      <button class="btn__menu click" onclick="openMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav__link--list">
+        <li class="nav__link">
+          <a class="nav__link--anchor purple" href="#">Home</a>
+        </li>
+        <li class="nav__link">
+          <a
+            class="nav__link--anchor purple"
+            href="./findyourcar.html"
+            >Find Your Car</a
+          >
+        </li>
+        <li class="nav__link">
+          <a class="nav__link--anchor nav__link--primary click" href="#"
+            >Contact Us</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="menu__backdrop">
+      <button class="btn__menu btn__menu--close click" onclick="closeMenu()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <ul class="menu__links">
+        <li class="menu__list">
+          <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
+        </li>
+        <li class="menu__list">
+          <a href="./findyourcar.html" class="menu__link" onclick="closeMenu()">Search</a>
+        </li>
+        <li class="menu__list">
+          <a href="#" class="menu__link" onclick="closeMenu()">Sign up</a>
+        </li>
+      </ul>
+    </div>
+    <section id="landing">
+      <header>
+        <div class="container">
+          <div class="row header__row">
+            <div class="header__description">
+              <h1 class="header__title">
+                UK's most awarded car subscription platform
+              </h1>
+              <h2 class="header__para">
+                Find your dream car with <span class="purple">Blinker</span>
+              </h2>
+              <div class="search__wrapper">
+                <input
+                  type="text"
+                  placeholder="Search by Model, Make or Keyword"
+                  class="search__input"
+                  onfocus="driveInCar()"
+                />
+                <button class="search__button click" onclick="onSearchClick()">
+                  <i class="fa-solid fa-magnifying-glass search__icon"></i>
+                  <i class="fa-solid fa-spinner search__spinner hidden"></i>
+                </button>
+              </div>
+            </div>
+            <figure class="header__img--wrapper">
+              <img
+                class="header__img"
+                src="./assets/building.681ea6bf.png"
+                alt=""
+              />
+            </figure>
+            <div class="car__wrapper">
+              <div class="car" onanimationend="onCarEnd(event)">
+                <img src="./assets/car.c936cfa6.png" class="car__body" alt="" />
+                <img
+                  src="./assets/bleeker-lights.png"
+                  class="car__lights"
+                  alt=""
+                />
+                <img
+                  src="./assets/wheel.png"
+                  class="car__wheel--front"
+                  alt=""
+                />
+                <img src="./assets/wheel.png" class="car__wheel--rear" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </section>
+  </body>
+</html>
