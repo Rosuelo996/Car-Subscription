@@ -23,10 +23,12 @@ const allowedMakes = [
 
 const MAX_RESULTS = 9;
 
+
 // STATE
 
 let carsData = [];
 let allCarsData = [];
+
 
 // API
 
@@ -36,6 +38,7 @@ async function getModelsForMake(make) {
   const data = await response.json();
   return data.Results;
 }
+
 
 // RANDOM DATA
 
@@ -56,6 +59,7 @@ function randomBodyType() {
   return types[Math.floor(Math.random() * types.length)];
 }
 
+
 // IMAGES
 
 function getCarImage(make, modelName) {
@@ -65,6 +69,7 @@ function getCarImage(make, modelName) {
 
   return `./assets/cars/${make}/${formattedModel}.jpg`;
 }
+
 
 // MAIN
 
@@ -94,6 +99,7 @@ async function loadAllCars() {
   filterSortAndRender();
 }
 
+
 // FILTER + SORT + OUTPUT
 
 function filterSortAndRender() {
@@ -122,6 +128,7 @@ function filterSortAndRender() {
     emptyStateEl.classList.remove("hidden");
   }
 }
+
 
 // CAR CARD
 
@@ -160,6 +167,7 @@ function modelHTML(car) {
     </div>
   `;
 }
+
 
 // SEARCH BUTTON
 
