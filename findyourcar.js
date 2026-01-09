@@ -114,8 +114,8 @@ function filterSortAndRender() {
     // sort
     .sort((a, b) => b.price - a.price);
 
-  // render + empty state
-  cardListEl.innerHTML = filteredCars.map((car) => modelHTML(car)).join("");
+    // render + empty state
+    cardListEl.innerHTML = filteredCars.map((car) => modelHTML(car)).join("");
 
   updateUI();
 }
