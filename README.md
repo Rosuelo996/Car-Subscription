@@ -1,7 +1,5 @@
 # Car Subscription
 
-## Description
-
 Car Subscription is a responsive car discovery web application that allows users to browse and explore vehicles through an interactive interface. The project focuses on dynamic rendering, filtering functionality, and creating a clean responsive user experience.
 
 ## Live Demo
