@@ -90,12 +90,21 @@ async function loadAllCars() {
     allCarsData = allCarsData.concat(carsForMake);
   }
 
-  carsData = allCarsData;
-  isDataReady = true;
-  filterSortAndRender();
+carsData = allCarsData;
+isDataReady = true;
 
+const params = new URLSearchParams(window.location.search);
+const query = params.get("query");
+
+if (query) {
+  searchInputEl.value = query;
+  searchCars();
+} else {
+  filterSortAndRender();
+}
   searchProgress.classList.add("hidden");
   searchLoading.classList.add("hidden");
+
 }
 
 // FILTER + SORT + OUTPUT

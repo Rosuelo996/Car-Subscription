@@ -54,8 +54,21 @@ function onSearch() {
 }
 
 function onSearchClick() {
+  const input = document
+    .querySelector(".search__input")
+    .value.trim();
+
   driveOutCar(); 
   onSearch();     
+
+  setTimeout(() => {
+    if (input === "") {
+      window.location.href = "./findyourcar.html";
+    } else {
+      window.location.href =
+        `./findyourcar.html?query=${encodeURIComponent(input)}`;
+    }
+  }, 1200);
 }
 
 
