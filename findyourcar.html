@@ -16,20 +16,22 @@
       <header>
         <nav>
           <div class="nav__row">
-            <img src="./assets/whitelogo.png" alt="" class="nav__logo" />
+            <a href="./index.html">
+              <img src="./assets/whitelogo.png" alt="" class="nav__logo" />
+            </a>
             <button class="btn__menu click" onclick="openMenu()">
               <i class="fa-solid fa-bars"></i>
             </button>
             <ul class="nav__links">
               <li class="nav__link">
-                <a class="nav__link--anchor" href="#">Home</a>
+                <a class="nav__link--anchor" href="./index.html">Home</a>
               </li>
               <li class="nav__link">
                 <a class="nav__link--anchor" href="#">Find Your Car</a>
               </li>
-              <li class="nav__link">
-                <a class="nav__link--anchor nav__link--primary btn" href="#"
-                  >Contact Us</a
+              <li class="nav__link disabled">
+                <div class="nav__link--anchor nav__link--primary btn"
+                  >Contact Us</div
                 >
               </li>
             </ul>
@@ -50,7 +52,7 @@
               <a href="#" class="menu__link" onclick="closeMenu()">Search</a>
             </li>
             <li class="menu__list">
-              <a href="#" class="menu__link" onclick="closeMenu()">Sign up</a>
+              <div class="menu__link disabled">Sign up</div>
             </li>
           </ul>
         </div>

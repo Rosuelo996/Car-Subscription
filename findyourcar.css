@@ -40,6 +40,14 @@ a {
   cursor: pointer;
 }
 
+.disabled {
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  opacity: 0.6;
+}
+
 h1 {
   line-height: 1.25;
   letter-spacing: 0.1em;
