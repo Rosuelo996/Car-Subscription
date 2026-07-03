@@ -14,18 +14,20 @@
   <body>
     <nav>
       <figure>
-        <img
+        <a href="./index.html">
+          <img
           class="nav__logo--img"
           src="./assets/blinker-icon.4f9b2663.png"
           alt=""
         />
+        </a>
       </figure>
       <button class="btn__menu click" onclick="openMenu()">
         <i class="fa-solid fa-bars"></i>
       </button>
       <ul class="nav__link--list">
         <li class="nav__link">
-          <a class="nav__link--anchor purple" href="#">Home</a>
+          <a class="nav__link--anchor purple" href="./index.html">Home</a>
         </li>
         <li class="nav__link">
           <a
@@ -47,13 +49,13 @@
       </button>
       <ul class="menu__links">
         <li class="menu__list">
-          <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
+          <a href="./index.html" class="menu__link" onclick="closeMenu()">Home</a>
         </li>
         <li class="menu__list">
           <a href="./findyourcar.html" class="menu__link" onclick="closeMenu()">Search</a>
         </li>
         <li class="menu__list">
-          <a href="#" class="menu__link" onclick="closeMenu()">Sign up</a>
+          <div class="menu__link disabled">Sign up</div>
         </li>
       </ul>
     </div>
