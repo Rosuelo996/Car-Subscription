@@ -1,25 +1,56 @@
 # Car Subscription
 
-Car Subscription is a responsive car discovery web application that allows users to browse and explore vehicles through an interactive interface. The project focuses on dynamic rendering, filtering functionality, and creating a clean responsive user experience.
+Responsive car discovery application built with **HTML**, **CSS**, and **JavaScript**.
 
 ## Live Demo
 
 https://car-subscription-wine.vercel.app
 
+## Overview
+
+Car Subscription is a responsive web application where users can browse available vehicles, search by model, apply filters, and explore detailed car information through an interactive interface.
+
 ## Features
 
-- Browse available vehicles
-- Search and filter results
-- Dynamic content rendering
-- Responsive design
-- Interactive UI components
+Browse available vehicles
 
-## Tech Stack
+Search vehicles by model
 
-- HTML
-- CSS
-- JavaScript
+Filter vehicles by price and category
 
-## What I Learned
+View vehicle details
 
-This project strengthened my understanding of DOM manipulation, application structure, responsive layouts, state handling, and creating interactive user experiences with vanilla JavaScript.
+Responsive design for desktop and mobile
+
+## Technologies
+
+**Frontend**
+
+HTML
+
+CSS
+
+JavaScript
+
+**Deployment**
+
+Vercel
+
+GitHub
+
+## Requirements
+
+Node.js 16+
+
+npm
+
+## Installation
+
+```bash
+git clone https://github.com/Rosuelo996/car-subscription.git
+cd car-subscription
+npm install
+npm run dev
+```
+
+Open **http://localhost:5173** in your browser.
